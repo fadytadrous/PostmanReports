@@ -1,5 +1,17 @@
 name: Newman Tests
-on: [push, pull_request]
+on: 
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+  workflow_dispatch:
+    inputs:
+      runTestSuite:
+        description: 'Trigger Newman tests manually'
+        required: true
+        default: 'true'
 
 jobs:
   test-api:
